@@ -1,0 +1,37 @@
+{% extends 'Psychiatrist/Head.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>References</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post">
+        {% csrf_token %} 
+        <table border="1" align="center">
+            <tr>
+                <th>Sl.No</th>
+                <th>Name of Patient</th>
+                <th>Contact</th>
+                <th>Photo</th>
+                <th>Refered Psychologits</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.referappointment.user.name}}</td>
+                <td>{{i.referappointment.user.contact}}</td>
+                <td><img src="{{i.referappointment.user.photo.url}}" width="150" height="150"></td>
+                <td>{{i.referappointment.token.availability.psychologist.name}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+    </div>
+</body>
+</html>
+{% endblock content %}

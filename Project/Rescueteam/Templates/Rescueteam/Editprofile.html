@@ -1,0 +1,45 @@
+{% extends 'Rescueteam/Head.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editprofile</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post">
+        {% csrf_token %}
+        <table align="center">
+            <tr>
+                <td colspan="2" align="center"><img src="{{data.logo.url}}" width="150" height="150" style="border-radius: 75px;"></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="txtname" id="" value="{{data.name}}"></td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td><input type="text" name="txtcontact" id="" value="{{data.contact}}"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="txtemail" id="" value="{{data.email}}"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name="txtaddress" id="" value="{{data.address}}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Change" name="Change"> <input type="reset" value="Cancel" name="Cancel"></td>
+            </tr>
+        </table>
+        
+    </form>
+    </div>
+</body>
+</html>
+{% endblock content %}

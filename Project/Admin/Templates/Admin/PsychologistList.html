@@ -1,0 +1,47 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Psychologist</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post">
+        {% csrf_token %}
+        
+        <br><br>
+        
+        <center><h3>Psychologist List</h3></center><br>
+        <table border="1" align="center" cellpadding="10" style="border-collapse: collapse;">
+            <tr>
+                <th>Sl.no</th>
+                <th>Hospital</th>
+                <th>Psychologist</th>
+                <th>Action</th>
+
+            </tr>
+            {% for i in data1 %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.hospital.name}}</td>
+                <td>{{i.name}}</td>
+                <td><a href="{% url 'Admin:psychologistreport' i.id %}">View Report</a></td>
+                
+            </tr>
+            {% endfor %}
+
+        </table>
+
+
+    </form>
+    </div>
+</body>
+</html>
+
+{% endblock content %}
+

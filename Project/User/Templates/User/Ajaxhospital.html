@@ -1,0 +1,29 @@
+
+        <table align="center" cellpadding="50" style="border-collapse: collapse" id="result">
+            <tr>
+                {% for i in hospital %}
+
+                <td>
+                    <div style="text-align:center;border:1px solid black;margin:22px;padding:20px">
+
+                        <p><img src="{{i.logo.url}}" width="100px" height="100px" /></p>
+                        <br>
+                        <p>{{i.name}}</p>
+                        <br>
+                        <p>{{i.contact}}</p>
+                        <br>
+                        <p>{{i.email}}</p>
+                        <br>
+                        <p><a href="{% url 'User:viewpsychiatrist' i.id %}">View Psychiatrist</a></p>
+                        <br>
+                        <p><a href="{% url 'User:viewpsychologist' i.id %}">View Psychologist</a></p>
+                        <br>
+                    </div>
+                </td>
+                {% if forloop.counter|divisibleby:4 %}
+            </tr>
+            <tr>
+                {% endif %}
+
+
+                {% endfor %}

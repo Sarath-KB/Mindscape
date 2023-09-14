@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Admin</title>
+
+        <link rel="icon" href="img/favicon.png" type="image/png">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{%static 'Admins/css/bootstrap.min.css'%}" />
+        <!-- themefy CSS -->
+        <link rel="stylesheet" href="{%static 'Admins/vendors/themefy_icon/themify-icons.css'%}" />
+        <!-- swiper slider CSS -->
+        <link rel="stylesheet" href="{%static 'Admins/vendors/swiper_slider/css/swiper.min.css'%}" />
+        <!-- select2 CSS -->
+        <link rel="stylesheet" href="{%static 'Admins/vendors/select2/css/select2.min.css'%}" />
+        <!-- select2 CSS -->
+        <link rel="stylesheet" href="{%static 'Admins/vendors/niceselect/css/nice-select.css'%}" />
+        <!-- owl carousel CSS -->
+        <link rel="stylesheet" href="{%static 'Admins/vendors/owl_carousel/css/owl.carousel.css'%}" />
+        <!-- gijgo css -->
+        <link rel="stylesheet" href="{%static 'Admins/vendors/gijgo/gijgo.min.css'%}" />
+        <!-- font awesome CSS -->
+        <link rel="stylesheet" href="{%static 'Admins/vendors/font_awesome/css/all.min.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admins/vendors/tagsinput/tagsinput.css'%}" />
+        <!-- datatable CSS -->
+        <link rel="stylesheet" href="{%static 'Admins/vendors/datatable/css/jquery.dataTables.min.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admins/vendors/datatable/css/responsive.dataTables.min.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admins/vendors/datatable/css/buttons.dataTables.min.css'%}" />
+        <!-- text editor css -->
+        <link rel="stylesheet" href="{%static 'Admins/vendors/text_editor/summernote-bs4.css'%}" />
+        <!-- morris css -->
+        <link rel="stylesheet" href="{%static 'Admins/vendors/morris/morris.css'%}">
+        <!-- metarial icon css -->
+        <link rel="stylesheet" href="{%static 'Admins/vendors/material_icon/material-icons.css'%}" />
+
+        <!-- menu css  -->
+        <link rel="stylesheet" href="{%static 'Admins/css/metisMenu.css'%}">
+        <!-- style CSS -->
+        <link rel="stylesheet" href="{%static 'Admins/css/style.css'%}" />
+        <link rel="stylesheet" href="{%static 'Admins/css/colors/default.css'%}" id="colorSkinCSS">
+        <link rel="stylesheet" href="{%static 'form.css'%}" />
+    </head>
+    <body class="crm_body_bg">
+
+
+
+        <!-- main content part here -->
+
+        <!-- sidebar  -->
+        <!-- sidebar part here -->
+        <nav class="sidebar">
+            <!-- <div class="logo d-flex justify-content-between">
+                <a href="index.html"><img src="{%static 'Admins/img/logo.png'%}" alt=""></a>
+                <div class="sidebar_close_icon d-lg-none">
+                    <i class="ti-close"></i>
+                </div>
+            </div> -->
+            <ul id="sidebar_menu">
+                <li class="side_menu_title">
+                    <span>Dashboard</span>
+                </li>
+                <li class="mm-active">
+                    <a  href="{% url 'Admin:homepage' %}"  aria-expanded="false">
+                        <img src="{%static 'Admins/img/menu-icon/1.svg'%}" alt="">
+                        <span>Dashboard</span>
+                    </a>
+                   
+                </li>
+                <li class="side_menu_title">
+                    <span>Location</span>
+                </li>
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admins/img/menu-icon/2.svg'%}" alt="">
+                        <span>Location</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Admin:district'%}">District</a></li> 
+                        <li><a href="{% url 'Admin:place' %}">Place</a></li>
+                        <li><a href="{% url 'Admin:hospitaltype' %}">Hospital Type</a></li>
+                       
+                    </ul>
+                </li>
+                <li class="">
+                    <a   class="has-arrow" href="#" aria-expanded="false">
+                        <img src="{%static 'Admins/img/menu-icon/2.svg'%}" alt="">
+                        <span>Hospital List</span>
+                    </a>
+                    <ul>
+                        <li><a href="{% url 'Admin:newhospitalist' %}">New Hospital List</a></li> 
+                        <li><a href="{% url 'Admin:acceptedhospitalist' %}">Accepted Hospital List</a></li>
+                        <li><a href="{% url 'Admin:rejectedhospitalist' %}">Rejected Hospital List</a></li>
+                        
+                        
+                    </ul>
+                </li>
+            </li>
+            <li class="">
+                <a   class="has-arrow" href="#" aria-expanded="false">
+                    <img src="{%static 'Admins/img/menu-icon/2.svg'%}" alt="">
+                    <span>Rescue Team</span>
+                </a>
+                <ul>
+                    <li><a href="{% url 'Admin:rescueteam'%}">New Rescue Team</a></li> 
+                    <li><a href="{% url 'Admin:viewrescueteam' %}">View RescueTeam</a></li>
+                    
+                </ul>
+            </li>
+            <li class="">
+                <a   class="has-arrow" href="#" aria-expanded="false">
+                    <img src="{%static 'Admins/img/menu-icon/2.svg'%}" alt="">
+                    <span>View Doctors</span>
+                </a>
+                <ul>
+                    <li><a href="{% url 'Admin:psychiatristlist'%}">Psychiatrists</a></li> 
+                    <li><a href="{% url 'Admin:psychologistlist' %}">Psychologists</a></li>
+                   
+                </ul>
+            </li>
+            <li><a href="{% url 'Admin:userreport' %}"><img src="{%static 'Admins/img/menu-icon/2.svg'%}" alt="">User Details</a></li>
+            <li class="">
+                <a   class="has-arrow" href="#" aria-expanded="false">
+                    <img src="{%static 'Admins/img/menu-icon/2.svg'%}" alt="">
+                    <span>Feedbacks</span>
+                </a>
+                <ul>
+                    <li><a href="{% url 'Admin:viewuserfeedback'%}">User Feedbacks</a></li> 
+                    <li><a href="{% url 'Admin:viewhospitalfeedback'%}">Hospital Feedbacks</a></li> 
+                    <li><a href="{% url 'Admin:viewpsychiatristfeedback'%}">Psychiatrist Feedbacks</a></li> 
+                    <li><a href="{% url 'Admin:viewpsychologistfeedback'%}">Psychologist Feedbacks</a></li> 
+                   
+                </ul>
+            </li>
+            
+            <li><a href="{% url 'Admin:viewcomplaint' %}"><img src="{%static 'Admins/img/menu-icon/2.svg'%}" alt="">Complaints</a></li> 
+            <li><a href="{% url 'Admin:adminpaymentreport' %}"><img src="{%static 'Admins/img/menu-icon/2.svg'%}" alt="">View Payment</a></li> 
+             
+            <li><a href="{% url 'Admin:logout' %}"><img src="{%static 'Admins/img/menu-icon/2.svg'%}" alt="">LOGOUT</a></li> 
+      
+            </ul>
+
+        </nav>
+        <!-- sidebar part end -->
+        <!--/ sidebar  -->
+
+        {% block content %}
+
+        {% endblock content %}
+
+
+        <!-- footer  -->
+        <!-- jquery slim -->
+        <script src="{%static 'Admins/js/jquery-3.4.1.min.js'%}"></script>
+        <!-- popper js -->
+        <script src="{%static 'Admins/js/popper.min.js'%}"></script>
+        <!-- bootstarp js -->
+        <script src="{%static 'Admins/js/bootstrap.min.js'%}"></script>
+        <!-- sidebar menu  -->
+        <script src="{%static 'Admins/js/metisMenu.js'%}"></script>
+        <!-- waypoints js -->
+        <script src="{%static 'Admins/vendors/count_up/jquery.waypoints.min.js'%}"></script>
+        <!-- waypoints js -->
+        <script src="{%static 'Admins/vendors/chartlist/Chart.min.js'%}"></script>
+        <!-- counterup js -->
+        <script src="{%static 'Admins/vendors/count_up/jquery.counterup.min.js'%}"></script>
+        <!-- swiper slider js -->
+        <script src="{%static 'Admins/vendors/swiper_slider/js/swiper.min.js'%}"></script>
+        <!-- nice select -->
+        <script src="{%static 'Admins/vendors/niceselect/js/jquery.nice-select.min.js'%}"></script>
+        <!-- owl carousel -->
+        <script src="{%static 'Admins/vendors/owl_carousel/js/owl.carousel.min.js'%}"></script>
+        <!-- gijgo css -->
+        <script src="{%static 'Admins/vendors/gijgo/gijgo.min.js'%}"></script>
+        <!-- responsive table -->
+        <script src="{%static 'Admins/vendors/datatable/js/jquery.dataTables.min.js'%}"></script>
+        <script src="{%static 'Admins/vendors/datatable/js/dataTables.responsive.min.js'%}"></script>
+        <script src="{%static 'Admins/vendors/datatable/js/dataTables.buttons.min.js'%}"></script>
+        <script src="{%static 'Admins/vendors/datatable/js/buttons.flash.min.js'%}"></script>
+        <script src="{%static 'Admins/vendors/datatable/js/jszip.min.js'%}"></script>
+        <script src="{%static 'Admins/vendors/datatable/js/pdfmake.min.js'%}"></script>
+        <script src="{%static 'Admins/vendors/datatable/js/vfs_fonts.js'%}"></script>
+        <script src="{%static 'Admins/vendors/datatable/js/buttons.html5.min.js'%}"></script>
+        <script src="{%static 'Admins/vendors/datatable/js/buttons.print.min.js'%}"></script>
+
+        <script src="{%static 'Admins/js/chart.min.js'%}"></script>
+        <!-- progressbar js -->
+        <script src="{%static 'Admins/vendors/progressbar/jquery.barfiller.js'%}"></script>
+        <!-- tag input -->
+        <script src="{%static 'Admins/vendors/tagsinput/tagsinput.js'%}"></script>
+        <!-- text editor js -->
+        <script src="{%static 'Admins/vendors/text_editor/summernote-bs4.js'%}"></script>
+
+        <script src="{%static 'Admins/vendors/apex_chart/apexcharts.js'%}"></script>
+
+        <!-- custom js -->
+        <script src="{%static 'Admins/js/custom.js'%}"></script>
+
+        <script src="{%static 'Admins/vendors/apex_chart/bar_active_1.js'%}"></script>
+        <script src="{%static 'Admins/vendors/apex_chart/apex_chart_list.js'%}"></script>

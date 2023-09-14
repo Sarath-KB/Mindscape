@@ -1,0 +1,52 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewHospitalList</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post">
+        {% csrf_token %}
+        <br><br><br>
+        <center><h3>New Hospital List</h3></center>
+    <table border="1" align="center"  width="70" cellpadding="10" style="border-collapse: collapse;">
+            <tr>
+                <td>Sl.no</td>
+                <td>Name</td>
+                <td>Contact</td>
+                <td>Logo</td>
+                <td>Proof</td>
+                <td>Address</td>
+                <td>District</td>
+                
+                <td>Action</td>
+
+            </tr>
+            {% for i in newhospitaldata %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.contact}}</td>
+                <td><img src="{{i.logo.url}}" width="150" height="150"></td>
+                <td><img src="{{i.proof.url}}" width="150" height="150"></td>
+                <td>{{i.address}}</td>
+                <td>{{i.place.district.district_name}}</td>
+                <td><a href="{% url 'Admin:accepthospital' i.id %}">Accept</a> ||
+                   <a href="{% url 'Admin:rejecthospital' i.id %}">Reject</a></td>
+            </tr>
+            {% endfor %}    
+
+        </table>
+        
+
+    </form>
+    </div>
+</body>
+</html>
+{% endblock content %}

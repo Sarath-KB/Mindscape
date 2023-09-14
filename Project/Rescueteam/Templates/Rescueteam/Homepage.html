@@ -1,0 +1,28 @@
+{% extends 'Rescueteam/Head.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <!-- <a href="{% url 'Rescueteam:myprofile'%}">Profile View</a><br><br><br>
+    <a href="{% url 'Rescueteam:emergencyrequest'%}"> View Emergency Request</a><br>
+    <a href="{% url 'Rescueteam:aemergencyrequest'%}"> View Accepted Emergency Request</a><br>
+    <a href="{% url 'Rescueteam:remergencyrequest'%}"> View Rejected Emergency Request</a><br><br><br> -->
+
+</body>
+<style>
+    body {
+        background-image: url('{% static 'urgent.jpg' %}');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+</html>
+{% endblock content %}

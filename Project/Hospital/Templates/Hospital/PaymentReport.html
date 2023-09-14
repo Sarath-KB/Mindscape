@@ -1,0 +1,90 @@
+{% extends 'Hospital/Head.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Report</title>
+</head>
+
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post">
+        {% csrf_token %}
+        
+        <br><br>
+        <center><h3>Payment Report</h3></center>
+        <br>
+        <table border="1" align="center" cellpadding="10" style="border-collapse: collapse;">
+            
+            <tr>
+                <td>From Date</td>
+                <td><input type="date" name="txtft" id=""></td>
+            </tr>
+            <tr>
+                <td>To Date</td>
+                <td><input type="date" name="txttt" id=""></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="View Report" name="btn"> </td>
+            </tr>
+        </table>
+        
+
+        <br><br><br>
+        {% if data1 %}
+        <table border="1" align="center" cellpadding="10">
+            <center><h3>Psychologist List</h3></center>
+            <tr>
+                <th>Sl.No</th>
+                <th>Psychologist Name</th>
+                <th>Total Appointment Count</th>
+                <th>Amount Paid</th>
+
+                
+            </tr>
+            {% for i,j,k in data1 %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.name}}</td>
+               
+                <td>{{j}}   </td>
+                <td>{{k}}</td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+        {% endif %}
+        <br><br><br>
+        {% if data %}
+        <table border="1" align="center" cellpadding="10">
+            <center><h3>Psychiatrist List</h3></center>
+            <tr>
+                <th>Sl.No</th>
+                <th>Psychiatrist Name</th>
+                <th>Total Appointment Count</th>
+                <th>Amount paid</th>
+            </tr>
+            {% for i,j,k in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.name}}</td>
+              
+                <td>{{j}}</td>
+                <td>{{k}}</td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+        {% endif %}
+
+    </form>
+    </div>
+</body>
+
+</html>
+{% endblock content %}

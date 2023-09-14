@@ -1,0 +1,64 @@
+{% extends 'User/Head.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My Psychologist Bookings</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post">
+        {% csrf_token %}
+        <center><h3> My Psychologist Bookings</h3></center>
+        <br><br>
+    <table border="1" align="center">
+            <tr>
+                <th>Sl.no</th>
+                <th>Hospital Name</th>
+                <th>Contact</th>
+                <th>Psychologist Name</th>
+                <th>Token No</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Mode</th>
+                <!-- <th>Action</th> -->
+
+            </tr>
+             {% for i in data %}
+             <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.token.availability.psychologist.hospital.name}}</td>
+                <td>{{i.token.availability.psychologist.hospital.contact}}</td>
+                <td>{{i.token.availability.psychologist.name}}</td>
+                <td>{{i.token.token_no}}</td>
+                <td>{{i.booking_to_date}}</td>
+                <td>{% if i.status == 1 %}
+                    <p>Accepted |<a href="{% url 'User:psychologistqrcode' i.id %}">View QR</a>{% if i.offline_status == "No" %}| <a href="{% url 'User:psychologistpayment' i.id  %}">Pay NoW </a>{% endif %}</p>
+                    {% elif i.status == 3 %}
+                    <p>Payment Completed  | {% if i.offline_status == "No" %}<a href="{% url 'User:Chat-luser' i.id %}">Chat Now</a>{% endif %}</p>
+                    {% elif i.status == 4 %}
+                    <p>Consulted</p>
+                    {% else %}
+                    <p>pending</p>
+                    {% endif %}</td>
+                    <td>{% if i.offline_status == "No"%}
+                        <p style="color: rgb(235, 129, 8);">Online</p>
+                        {% else %}
+                        <p style="color: rgb(255, 0, 0);">Offline</p>
+                        {% endif %}
+                    </td>
+                <!-- <td><a href="{% url 'User:delpyschologistbooking' i.id %}">Remove</a></td> -->
+             </tr>
+             {% endfor %}
+
+        </table>
+    </form>
+    </div>
+</body>
+</html>
+
+{% endblock content %}

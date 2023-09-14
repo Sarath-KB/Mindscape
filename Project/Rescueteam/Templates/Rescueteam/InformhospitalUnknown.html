@@ -1,0 +1,50 @@
+{% extends 'Rescueteam/Head.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inform Hospital Unknown</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post" id="UserForm" data-place-url="{% url 'Guest:ajaxplace' %}" data-hospital-url="{% url 'User:ajaxhospital' %}">
+        {% csrf_token %}
+        
+        <table align="center" cellpadding="50" style="border-collapse: collapse" id="result">
+            <tr>
+                {% for i in data %}
+
+                <td>
+                    <div style="text-align:center;border:1px solid black;margin:22px;padding:20px">
+
+                        <p><img src="{{i.logo.url}}" width="100px" height="100px" /></p>
+                        <br>
+                        <p>{{i.name}}</p>
+                        <br>
+                        <p>{{i.contact}}</p>
+                        <br>
+                        <p>{{i.email}}</p>
+                        <br>
+                        <p><a href="{% url 'Rescueteam:informunknown' i.id %}" >Inform</a></p>
+                        
+                    </div>
+                </td>
+                {% if forloop.counter|divisibleby:4 %}
+            </tr>
+            <tr>
+                {% endif %}
+
+
+                {% endfor %}
+        </table>
+    </form>
+    </div>
+    
+</body>
+</html>
+
+{% endblock content %}

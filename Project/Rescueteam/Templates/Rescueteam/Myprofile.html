@@ -1,0 +1,40 @@
+{% extends 'Rescueteam/Head.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=for, initial-scale=1.0">
+    <title>MyProfile</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post">
+        <table border="1" align="center">
+            <tr>
+                <td colspan="2" align="center"><img src="{{data.logo.url}}" width="150" height="150" style="border-radius: 75px;"></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{data.name}}</td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td>{{data.contact}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{data.email}}</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>{{data.address}}</td>
+            </tr>
+        </table>
+    </form>
+    </div>
+</body>
+</html>
+{% endblock content %}

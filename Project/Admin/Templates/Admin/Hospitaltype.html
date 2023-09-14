@@ -1,0 +1,50 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitaltype</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post">
+    {% csrf_token %}
+    <table  align="center" cellpadding="10" style="border-collapse: collapse;">
+        <br><br>
+        <tr>
+            <td>Hospital Type</td>
+            <td><input type="text" name="txtname" id="" value="{{SelCat.hospitaltype_name}}"></td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="Save" name="btns"> <input type="reset" value="Cancel" name="btnc"></td>
+        </tr>
+    </table>
+    <br><br><br>
+    <table border="1" align="center" cellpadding="10" style="border-collapse: collapse;">
+        <tr>
+            <td>Sl.no</td>
+            <td>Hospital Type</td>
+            <td>Action</td>
+
+        </tr>
+        {% for i in hospitaltype %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+                <td>{{i.hospitaltype_name}}</td>
+                <td><a href="{% url 'Admin:delhospitaltype' i.id %}">Delete</a>
+                   </td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</div>
+</body>
+</html>
+
+{% endblock content %}
+

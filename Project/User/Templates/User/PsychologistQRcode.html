@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRCode</title>
+</head>
+<body>
+    <center><img src="{% url 'User:chlqr_code' did %}" alt="QR Code"></center>
+    <h3>Booking Details</h3>
+
+    <table border="1">
+        <tr>
+            <td>
+                Token No 
+            </td>
+            <td>{{data.token.token_no}}</td>
+        </tr>
+        <tr>
+            <td>
+                Psychologist Name 
+            </td>
+            <td>{{data.token.availability.psychologist.name}}</td>
+        </tr>
+        <tr>
+            <td>
+                Date
+            </td>
+            <td>{{data.token.availability.date}}</td>
+        </tr>
+        <tr>
+            <td>
+                From Time
+            </td>
+            <td>{{data.token.availability.from_time}}</td>
+        </tr>
+        <tr>
+            <td>
+                To Time
+            </td>
+            <td>{{data.token.availability.to_time}}</td>
+        </tr>
+    </table>
+</body>
+</html>

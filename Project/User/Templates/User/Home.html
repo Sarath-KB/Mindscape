@@ -1,0 +1,155 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> User</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Main/assets/img/favicon.ico'%}">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{% static 'Main/assets/css/bootstrap.min.css'%}">
+	<link rel="stylesheet" href="{% static 'Main/assets/css/owl.carousel.min.css'%}">
+	<link rel="stylesheet" href="{% static 'Main/assets/css/slicknav.css'%}">
+    <link rel="stylesheet" href="{% static 'Main/assets/css/flaticon.css'%}">
+    <link rel="stylesheet" href="{% static 'Main/assets/css/gijgo.css'%}">
+    <link rel="stylesheet" href="{% static 'Main/assets/css/animate.min.css'%}">
+    <link rel="stylesheet" href="{% static 'Main/assets/css/animated-headline.css'%}">
+	<link rel="stylesheet" href="{% static 'Main/assets/css/magnific-popup.css'%}">
+	<link rel="stylesheet" href="{% static 'Main/assets/css/fontawesome-all.min.css'%}">
+	<link rel="stylesheet" href="{% static 'Main/assets/css/themify-icons.css'%}">
+	<link rel="stylesheet" href="{% static 'Main/assets/css/slick.css'%}">
+	<link rel="stylesheet" href="{% static 'Main/assets/css/nice-select.css'%}">
+	<link rel="stylesheet" href="{% static 'Main/assets/css/style.css'%}">
+
+    <link rel="stylesheet" href="{% static 'form.css' %}" />
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="{% static 'Main/assets/img/logo/logo_transparent.png'%}" alt="" width="102" height="62">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+        body {
+            background-image: url('{% static 'userhome.jpg' %}');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+</style>
+    <!-- Preloader Start -->
+<header>
+    <!--? Header Start -->
+    <div class="header-area">
+        <div class="main-header header-sticky">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <!-- Logo -->
+                    <div class="col-xl-2 col-lg-2 col-md-1">
+                        <div class="logo">
+                            <a href="index.html"><img src="{% static 'Main/assets/img/logo/logo_transparent.png'%}" alt="" width="203" height="50"></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-10 col-md-10">
+                        <div class="menu-main d-flex align-items-center justify-content-end">
+                            <!-- Main-menu -->
+                            <div class="main-menu f-right d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="{% url 'User:home'%}">Home</a></li>
+                                        
+                                        <li><a href="#">Privacy</a>
+                                            <ul class="submenu">
+                                                <li><a href="{% url 'User:myprofile'%}">My Profile</a></li>
+                                                <li><a href="{% url 'User:editprofile'%}">Edit Profile</a></li>
+                                                <li><a href="{% url 'User:changepassword'%}">Change Password</a></li>
+                                                <li><a href="{% url 'User:logout'%}">Logout</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="{% url 'User:searchhospital'%}">Search Hospital</a></li>
+                                        <li><a href="{% url 'User:sendemergencyrequest'%}">Emergency</a></li>
+                                        <li><a href="#">My Doctors</a>
+                                            <ul class="submenu">
+                                                <li><a href="{% url 'User:mypsychologist'%}">Psychologist</a></li>
+                                                <li><a href="{% url 'User:mypsychiatrist'%}">Psychiatrist</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="{% url 'User:sendcomplaint'%}">Complaints</a></li>
+                                        <li><a href="{% url 'User:feedback'%}">Feedbacks</a></li>
+                                        
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                                <a href="#" class="btn header-btn">Emergency</a>
+                            </div> -->
+                        </div>
+                    </div>   
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+</header>
+
+    <!-- Scroll Up -->
+    <div id="back-top" >
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+
+    <!-- JS here -->
+
+    <script src="{% static 'Main/./assets/js/vendor/modernizr-3.5.0.min.js'%}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{% static 'Main/./assets/js/vendor/jquery-1.12.4.min.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/popper.min.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/bootstrap.min.js'%}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{% static 'Main/./assets/js/jquery.slicknav.min.js'%}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="{% static 'Main/./assets/js/owl.carousel.min.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/slick.min.js'%}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{% static 'Main/./assets/js/wow.min.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/animated.headline.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/jquery.magnific-popup.js'%}"></script>
+
+    <!-- Date Picker -->
+    <script src="{% static 'Main/./assets/js/gijgo.min.js'%}"></script>
+    <!-- Nice-select, sticky -->
+    <script src="{% static 'Main/./assets/js/jquery.nice-select.min.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/jquery.sticky.js'%}"></script>
+    
+    <!-- counter , waypoint -->
+    <script src="{% static 'Main/./assets/js/jquery.counterup.min.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/waypoints.min.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/jquery.countdown.min.js'%}"></script>
+    <!-- contact js -->
+    <script src="{% static 'Main/./assets/js/contact.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/jquery.form.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/jquery.validate.min.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/mail-script.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/jquery.ajaxchimp.min.js'%}"></script>
+    
+    <!-- Jquery Plugins, main Jquery -->	
+    <script src="{% static 'Main/./assets/js/plugins.js'%}"></script>
+    <script src="{% static 'Main/./assets/js/main.js'%}"></script>
+    
+    </body>
+</html>

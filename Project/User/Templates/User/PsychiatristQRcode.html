@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRCode</title>
+</head>
+<body>
+    <body>
+        <center><img src="{% url 'User:chqr_code' did %}" alt="QR Code"></center>
+
+        <table border="1">
+            <tr>
+                <td>
+                    Token No 
+                </td>
+                <td>{{data.token.token_no}}</td>
+            </tr>
+            <tr>
+                <td>
+                    Psychiartist Name 
+                </td>
+                <td>{{data.token.availability.psychiatrist.name}}</td>
+            </tr>
+            <tr>
+                <td>
+                    Date
+                </td>
+                <td>{{data.token.availability.date}}</td>
+            </tr>
+            <tr>
+                <td>
+                    From Time
+                </td>
+                <td>{{data.token.availability.from_time}}</td>
+            </tr>
+            <tr>
+                <td>
+                    To Time
+                </td>
+                <td>{{data.token.availability.to_time}}</td>
+            </tr>
+        </table>
+    </body>
+</body>
+</html>

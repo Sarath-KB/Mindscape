@@ -1,0 +1,52 @@
+{% extends 'Admin/Head.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>District</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post">
+        {% csrf_token %}
+        <br><br>
+        <table  align="center" cellpadding="10" style="border-collapse: collapse;">
+            <br><br>
+            <tr>
+                <th>District</th>
+                <td><input type="text" name="txtname" id="" value="{{SelDis.district_name}}" autocomplete="off" required=""></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Save" name="btns"> <input type="reset" value="Cancel" name="btnc"></td>
+            </tr>
+        </table>
+        <br><br>
+        <table border="1" align="center" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>District</td>
+                <td>Action</td>
+
+            </tr>
+            {% for i in district %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.district_name}}</td>
+                <td><a href="{% url 'Admin:deldistrict' i.id %}">Delete</a> ||
+                    <a href="{% url 'Admin:editdistrict' i.id %}">Edit</a></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        <br><br>
+    </form>
+    </div>
+</body>
+</html>
+
+{% endblock content %}
+

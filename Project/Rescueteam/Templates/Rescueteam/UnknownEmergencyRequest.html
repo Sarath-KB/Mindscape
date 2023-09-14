@@ -1,0 +1,40 @@
+{% extends 'Rescueteam/Head.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critical Support </title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post">
+        {% csrf_token %}
+        <center><h3>Critical Support</h3></center>
+    <table border="1" align="center">
+            <tr>
+                <td>Sl.no</td>
+                <td>Content</td>
+                <td>Major</td>
+                <td>Action</td>
+
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.content}}</td>
+                <td>{{i.major}}</td>
+                
+                <td><a href="{% url 'Rescueteam:acceptunknownrequest' i.id %}">Accept</a> ||
+                   <a href="{% url 'Rescueteam:rejectunknownrequest' i.id %}">Reject</a></td>
+            </tr>
+            {% endfor %}    
+
+        </table>
+    </form>
+    </div>
+</body>
+</html>
+{% endblock content %}

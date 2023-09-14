@@ -1,0 +1,48 @@
+{% extends 'Hospital/Head.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Appointment</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post">
+        {% csrf_token %}
+        <center><h3>New Appointment List</h3></center>
+    <table border="1" align="center" cellpadding="10">
+            <tr>
+                <td>Sl.no</td>
+                <td>Name of Psychiatrist</td>
+                <td>Token No</td>
+                <td>Booking To</td>
+                <td>Name of Patient</td>
+                <td>Contact</td>
+                <td>Photo</td>
+                <td>Action</td>
+
+            </tr>
+             {% for i in data %}
+             <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.token.availability.psychiatrist.name}}</td>
+                <td>{{i.token.token_no}}</td>
+                <td>{{i.booking_to_date}}</td>
+                <td>{{i.user.name}}</td>
+                <td>{{i.user.contact}}</td>
+                <td><img src="{{i.user.photo.url}}" width="150" height="150"></td>
+                <td><a href="{% url 'Hospital:acceptpsychiatrist' i.id %}">Accept</a> |
+                <a href="{% url 'Hospital:rejectpsychiatrist' i.id %}">Reject</a></td>
+             </tr>
+             {% endfor %}
+
+        </table>
+    </form>
+    </div>
+</body>
+</html>
+{% endblock content %}

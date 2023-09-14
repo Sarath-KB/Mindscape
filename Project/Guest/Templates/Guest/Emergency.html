@@ -1,0 +1,65 @@
+{% extends 'Guest/Head.html'%}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency</title>
+</head>
+<body>
+    <div id="tab" align="center">
+    <form action="" method="post" id="UserForm" data-place-url="{% url 'Guest:ajaxplace' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table align="center">
+            <tr>
+                <td>District</td>
+                    <td><select name="select_dis" id="districts">
+                        <option value="">--------select--------</option>
+                        {% for i in district %}
+                        <option value="{{i.id}}">{{i.district_name}}</option>
+                        {% endfor %}
+                    </select></td>
+            </tr>
+            <tr>
+                <td>Place</td>
+                    <td><select name="select_place" id="places">
+                        <option value="">--------select--------</option>
+                        
+                    </select></td>
+            </tr>
+        <tr>
+            <td>Content</td>
+            <td><input type="text" name="txtcontent" id=""></td>
+        </tr>
+        <tr>
+            <td>Major</td>
+            <td><input type="radio" name="major" id="" value="Yes">Yes<input type="radio" name="major" id="" value="No">No</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="Send" name="Send"> <input type="reset" value="Cancel" name="Cancel"></td>
+        </tr>
+        </table>
+        </form>
+        </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#districts").change(function () {
+        var did = $(this).val();
+        var ur = $("#UserForm").attr("data-place-url");
+        $.ajax({
+            url: ur,
+            data: { did: did, },
+            success: function (data) {
+                $("#places").html(data);
+            },
+        });
+    });
+</script>
+</body>
+</html>
+
+{% endblock content %}
